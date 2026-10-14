@@ -2,7 +2,6 @@ import { Geist, Geist_Mono } from "next/font/google"
 
 import "./globals.css"
 import { SocialLinks } from "@/components/social-links"
-import { PageLoader } from "@/components/ui/page-loader"
 import { Navbar } from "@/components/ui/navbar"
 import { ThemeProvider } from "@/components/theme-provider"
 import { cn } from "@/lib/utils";
@@ -27,7 +26,6 @@ export default function RootLayout({
     >
       <body>
         <ThemeProvider>
-          <PageLoader />
           <Navbar />
           {children}
         </ThemeProvider>
