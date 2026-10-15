@@ -1,7 +1,8 @@
 "use client"
 
-import { Mail } from "lucide-react"
-import { useState } from "react"
+import { Mail, Moon, Sun } from "lucide-react"
+import { useEffect, useState } from "react"
+import { useTheme } from "next-themes"
 import { FaGithub, FaTwitch, FaXTwitter, FaYoutube } from "react-icons/fa6"
 import {
   Tooltip,
@@ -19,6 +20,18 @@ export function Navbar({
   discordHref = "https://discord.com/app",
 }: NavbarProps) {
   const [emailCopied, setEmailCopied] = useState(false)
+  const [hasMounted, setHasMounted] = useState(false)
+  const { resolvedTheme, setTheme } = useTheme()
+
+  useEffect(() => {
+    setHasMounted(true)
+  }, [])
+
+  const isDark = hasMounted && resolvedTheme === "dark"
+
+  function toggleTheme() {
+    setTheme(isDark ? "light" : "dark")
+  }
 
   return (
     <header className="sticky top-0 z-50 w-full border-b border-border/70 bg-background">
@@ -93,7 +106,7 @@ export function Navbar({
           <Tooltip open={emailCopied}>
             <TooltipTrigger
               aria-label="Copy email address"
-              className="inline-flex size-9 items-center justify-center rounded-md bg-primary text-primary-foreground transition-colors hover:bg-primary/80 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring"
+              className="inline-flex size-9 items-center justify-center rounded-md border border-border transition-colors hover:bg-muted focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring"
               onClick={async () => {
                 try {
                   await navigator.clipboard.writeText("tahfarithedev@gmail.com")
@@ -109,6 +122,26 @@ export function Navbar({
             </TooltipTrigger>
             <TooltipContent side="top">Email Copied!</TooltipContent>
           </Tooltip>
+          <button
+            aria-checked={isDark}
+            aria-label="Dark mode"
+            className={`inline-flex h-6 w-11 shrink-0 items-center rounded-full border border-border focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring ${isDark ? "bg-primary" : "bg-muted"}`}
+            onClick={toggleTheme}
+            role="switch"
+            title="Dark mode"
+            type="button"
+          >
+            <span
+              aria-hidden="true"
+              className={`inline-flex size-5 items-center justify-center rounded-full bg-background shadow-sm ${isDark ? "translate-x-5" : "translate-x-0.5"}`}
+            >
+              {isDark ? (
+                <Moon className="size-3" />
+              ) : (
+                <Sun className="size-3" />
+              )}
+            </span>
+          </button>
         </div>
       </nav>
     </header>

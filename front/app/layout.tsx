@@ -1,10 +1,16 @@
 import { Geist, Geist_Mono } from "next/font/google"
+import type { Metadata } from "next"
 
 import "./globals.css"
 import { SocialLinks } from "@/components/social-links"
 import { Navbar } from "@/components/ui/navbar"
 import { ThemeProvider } from "@/components/theme-provider"
 import { cn } from "@/lib/utils";
+
+export const metadata: Metadata = {
+  title: "tahfari.",
+  description: "I code things that look cool.",
+}
 
 const geist = Geist({subsets:['latin'],variable:'--font-sans'})
 
