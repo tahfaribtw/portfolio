@@ -2,7 +2,7 @@ import { SocialLinks } from "@/components/social-links"
 
 export default function Page() {
     return (
-        <main className="min-h-svh px-6 pt-28 font-mono text-foreground">
+            <main className="min-h-svh px-6 pt-28 font-mono text-foreground">
             <div className="mx-auto w-full max-w-xs">
                 <header>
                     <h1 className="text-lg font-normal">Blog</h1>

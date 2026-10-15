@@ -3,6 +3,7 @@
 import { Mail, Moon, Sun } from "lucide-react"
 import { useEffect, useState } from "react"
 import { useTheme } from "next-themes"
+import Link from "next/link"
 import { FaGithub, FaTwitch, FaXTwitter, FaYoutube } from "react-icons/fa6"
 import {
   Tooltip,
@@ -39,12 +40,12 @@ export function Navbar({
         aria-label="Main navigation"
         className="mx-auto flex min-h-16 w-full max-w-6xl items-center justify-between gap-3 px-4 sm:gap-4 sm:px-6"
       >
-        <a
+        <Link
           className="min-w-0 flex-1 truncate text-base font-semibold text-foreground sm:flex-none"
           href="/"
         >
           {name}
-        </a>
+        </Link>
         <div className="flex shrink-0 items-center gap-1.5 sm:gap-2">
           <a
             aria-label="Discord"

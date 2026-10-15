@@ -1,5 +1,6 @@
 import { SocialLinks } from "@/components/social-links"
 import { TextDecoder } from "@/components/text-decoder"
+import Link from "next/link"
 
 export default function Page() {
   return (
@@ -16,19 +17,19 @@ export default function Page() {
         <nav aria-label="Main navigation" className="mt-16">
           <ul className="space-y-5 text-sm">
             <li>
-              <a href="/about" className="text-muted-foreground transition-colors hover:text-foreground">
+              <Link href="/about" className="text-muted-foreground transition-colors hover:text-foreground">
                 about
-              </a>
+              </Link>
             </li>
             <li>
-              <a href="/blog" className="text-muted-foreground transition-colors hover:text-foreground">
+              <Link href="/blog" className="text-muted-foreground transition-colors hover:text-foreground">
                 blog
-              </a>
+              </Link>
             </li>
             <li>
-              <a href="/projects" className="text-muted-foreground transition-colors hover:text-foreground">
+              <Link href="/projects" className="text-muted-foreground transition-colors hover:text-foreground">
                 projects
-              </a>
+              </Link>
             </li>
             <li>
               <a href="#" className="text-muted-foreground transition-colors hover:text-foreground">
